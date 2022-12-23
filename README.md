@@ -1,4 +1,4 @@
-![currency-converter](https://i.postimg.cc/jd1yzPtC/currency-converter.png)
+![currency-converter](https://i.postimg.cc/SKptWWTq/Animation.gif)
 # My currency-converter
 ## What give you my converter
   Write amount, chose currency and click the buttom it's very easy. If you want check https://kluzera.github.io/currency-conventer-advanced/
