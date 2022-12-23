@@ -1,36 +1,53 @@
-let zlotyElement = document.querySelector(".js-zloty");
-let currencyElement = document.querySelector(".js-form__currency");
-let formElement = document.querySelector(".js-form");
-let resultElement = document.querySelector(".js-result");
+{
+  const welcome = () => {
+    console.log("Hi everyone");
+  };
 
-formElement.addEventListener("submit", (even) => {
-  event.preventDefault();
+  welcome();
 
-  let EUR = 4.68;
-  let USD = 4.42;
-  let GBP = 5.37;
-  let CHF = 4.75;
+  const calculateResult = (zloty, currency) => {
+    const EUR = 4.68;
+    const USD = 4.42;
+    const GBP = 5.37;
+    const CHF = 4.75;
 
-  let zloty = +zlotyElement.value;
-  let currency = currencyElement.value;
-  let result;
+    switch (currency) {
+      case "EUR":
+        return zloty / EUR;
 
-  switch (currency) {
-    case "EUR":
-      result = zloty / EUR;
-      break;
+      case "USD":
+        return zloty / USD;
 
-    case "USD":
-      result = zloty / USD;
-      break;
+      case "GBP":
+        return zloty / GBP;
 
-    case "GBP":
-      result = zloty / GBP;
-      break;
+      case "CHF":
+        return zloty / CHF;
+    }
+  };
 
-    case "CHF":
-      result = zloty / CHF;
+  const updateTextResult = (zloty, result, currency) => {
+    const resultElement = document.querySelector(".js-result");
+    resultElement.innerHTML = `${zloty} PLN = ${result.toFixed(2)} ${currency}`;
   }
 
-  resultElement.innerHTML = `${zloty} PLN = ${result.toFixed(2)} ${currency}`;
-});
+  const init = () => {
+    const formElement = document.querySelector(".js-form");
+
+    formElement.addEventListener("submit", (even) => {
+      event.preventDefault();
+
+      const zlotyElement = document.querySelector(".js-zloty");
+      const currencyElement = document.querySelector(".js-form__currency");
+      
+      const zloty = +zlotyElement.value;
+      const currency = currencyElement.value;
+
+      let result = calculateResult(zloty, currency);
+
+      updateTextResult(zloty, result, currency);
+    });
+  }
+    
+  init();
+}
