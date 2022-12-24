@@ -9,6 +9,8 @@
 -convention BEM
 
 -using new features ee6+
+
+-javascript
 ```javascript
 resultElement.innerHTML = `${zloty} PLN = ${result.toFixed(2)} ${currency}`;
 });
