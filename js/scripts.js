@@ -29,25 +29,26 @@
   const updateTextResult = (zloty, result, currency) => {
     const resultElement = document.querySelector(".js-result");
     resultElement.innerHTML = `${zloty} PLN = ${result.toFixed(2)} ${currency}`;
-  }
+  };
 
+  const onFormSubmit = (even) => {
+    event.preventDefault();
+
+    const zlotyElement = document.querySelector(".js-zloty");
+    const currencyElement = document.querySelector(".js-form__currency");
+
+    const zloty = +zlotyElement.value;
+    const currency = currencyElement.value;
+
+    let result = calculateResult(zloty, currency);
+
+    updateTextResult(zloty, result, currency);
+  };
   const init = () => {
     const formElement = document.querySelector(".js-form");
 
-    formElement.addEventListener("submit", (even) => {
-      event.preventDefault();
+    formElement.addEventListener("submit", onFormSubmit);
+  };
 
-      const zlotyElement = document.querySelector(".js-zloty");
-      const currencyElement = document.querySelector(".js-form__currency");
-      
-      const zloty = +zlotyElement.value;
-      const currency = currencyElement.value;
-
-      let result = calculateResult(zloty, currency);
-
-      updateTextResult(zloty, result, currency);
-    });
-  }
-    
   init();
 }
