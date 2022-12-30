@@ -6,11 +6,11 @@
 - you can convert zlotys to the selected currency
 - it"s very fast
 ### What I use:
--convention BEM
+- convention BEM
 
--using new features ee6+
+- using new features ee6+
 
--javascript
+- javascript
 ```javascript
 resultElement.innerHTML = `${zloty} PLN = ${result.toFixed(2)} ${currency}`;
 });
